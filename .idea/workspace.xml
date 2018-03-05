@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10655698-f1b4-4c69-b0bd-ab2a0536fad8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4be1fc1e-fb69-4189-a82b-c28c2d2e560a.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6245c8d9-cad2-4887-906c-1c4b14a8e371.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fb4045b-e17b-47af-bd6f-2e5e8866ff96.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d780cbc8-1579-4488-bd6d-5743ac8c641a.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d83c58db-7609-42cd-9643-8b930c710c37.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/digits_recognition.iml" afterPath="$PROJECT_DIR$/.idea/digits_recognition.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/convolutional.py" afterPath="$PROJECT_DIR$/digits_recognition/convolutional.py" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/data/convolutional.ckpt.data-00000-of-00001" afterPath="$PROJECT_DIR$/digits_recognition/model/convolutional.ckpt.data-00000-of-00001" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/data/convolutional.ckpt.index" afterPath="$PROJECT_DIR$/digits_recognition/model/convolutional.ckpt.index" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/data/regression.ckpt.data-00000-of-00001" afterPath="$PROJECT_DIR$/digits_recognition/model/regression.ckpt.data-00000-of-00001" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/data/regression.ckpt.index" afterPath="$PROJECT_DIR$/digits_recognition/model/regression.ckpt.index" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/regression.py" afterPath="$PROJECT_DIR$/digits_recognition/regression.py" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/digits_recognition/static/js/bootstrap.min.js" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/static/js/jquery.min.js" afterPath="$PROJECT_DIR$/digits_recognition/static/js/jquery.min.js" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/static/js/main.js" afterPath="$PROJECT_DIR$/digits_recognition/static/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/digits_recognition/views.py" afterPath="$PROJECT_DIR$/digits_recognition/views.py" />
-    </list>
+    <list default="true" id="10655698-f1b4-4c69-b0bd-ab2a0536fad8" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/digits_recognition/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
-              <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+              <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -92,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/digits_recognition/fgsm_mnist.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="488">
-              <caret line="96" column="43" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="43" />
+              <caret line="96" column="43" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="43" />
               <folding>
                 <element signature="e#128#137#0" expanded="true" />
               </folding>
@@ -215,6 +196,11 @@
               <item name="digits_recognition_attack" type="462c0819:PsiDirectoryNode" />
               <item name="digits_recognition" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="digits_recognition_attack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="digits_recognition_attack" type="462c0819:PsiDirectoryNode" />
+              <item name="MNIST_data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -622,7 +608,7 @@
     <entry file="file://$PROJECT_DIR$/digits_recognition/fgsm_mnist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
-          <caret line="96" column="43" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="43" />
+          <caret line="96" column="43" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="96" selection-end-column="43" />
           <folding>
             <element signature="e#128#137#0" expanded="true" />
           </folding>
@@ -632,7 +618,7 @@
     <entry file="file://$PROJECT_DIR$/digits_recognition/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
-          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
