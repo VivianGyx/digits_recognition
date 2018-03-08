@@ -22,7 +22,7 @@ img_size = 28
 img_chan = 1
 n_classes = 10
 
-
+#加载数据
 print('\nLoading MNIST')
 
 mnist = tf.keras.datasets.mnist

@@ -16,10 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from digits_recognition.views import index
-from digits_recognition.views import process
+from digits_recognition.views import process, fgsm_attack
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
-    url(r'^process', process)
+    url(r'^process', process),
+    # url(r'^process_attack', process_attack),
+    url(r'^fgsm_attack', fgsm_attack),
+
+
 ]

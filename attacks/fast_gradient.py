@@ -64,6 +64,7 @@ def fgm(model, x, eps=0.01, epochs=1, sign=True, clip_min=0., clip_max=1.):
     xadv, _ = tf.while_loop(_cond, _body, (xadv, 0), back_prop=False,
                             name='fast_gradient')
     return xadv
+    # print(xadv)
 
 
 def fgmt(model, x, y=None, eps=0.01, epochs=1, sign=True, clip_min=0.,

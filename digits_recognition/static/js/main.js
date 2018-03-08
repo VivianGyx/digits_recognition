@@ -16,18 +16,29 @@ $("#img_input").on("change", function (e) {
     }
 });
 
-var _createClass = function ()
-{ function defineProperties(target, props)
-{ for (var i = 0; i < props.length; i++)
-{ var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false;
-descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true;
-Object.defineProperty(target, descriptor.key, descriptor); } }
-return function (Constructor, protoProps, staticProps)
-{ if (protoProps) defineProperties(Constructor.prototype, protoProps);
-if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }
 
-function _classCallCheck(instance, Constructor)
-{ if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+    };
+}();
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
 
 var inputs = [];
 /* global $ */
@@ -109,6 +120,7 @@ var Main = function () {
             };
         }
     }, {
+        //将手写数字转换到小画布上
         key: 'drawInput',
         value: function drawInput() {
             var ctx = this.input.getContext('2d');
@@ -122,8 +134,8 @@ var Main = function () {
                     for (var j = 0; j < 28; j++) {
                         var n = 4 * (i * 28 + j);
                         inputs[i * 28 + j] = (data[n] + data[n + 1] + data[n + 2]) / 3;
-                        ctx.fillStyle = 'rgb(' + [data[n], data[n + 1], data[n + 2]].join(',') + ')';
-                        ctx.fillRect(j * 5, i * 5, 5, 5);
+                        ctx.fillStyle = 'rgb(' + [data[n], data[n + 1], data[n + 2]].join(',') + ')';   //设置或返回用于填充绘画的颜色、渐变或模式
+                        ctx.fillRect(j * 5, i * 5, 5, 5);   //绘制“被填充”的矩形
                     }
                 }
                 if (Math.min.apply(Math, inputs) === 255) {
@@ -132,12 +144,15 @@ var Main = function () {
             };
             img.src = this.canvas.toDataURL();
         }
-    }, {
+    },
+        {
+        //找到正确预测最大的概率并标记为绿色
         key: 'recognizeDraw',
         value: function recognizeDraw() {
             var sendPackage = {"inputs": JSON.stringify(inputs)};
             $.post("/process", sendPackage, function (data) {
                 var newData = eval(data);   //#将字符串转换为整数。
+                console.log(newData[0]);
                 for (var _i = 0; _i < 2; _i++) {
                     var max = 0;
                     var max_index = 0;
@@ -167,7 +182,49 @@ var Main = function () {
                 }
             });
         }
-    }, {
+    },
+    //     {
+    //     //找到对抗样本被错误识别最大的概率并标记为绿色
+    //     key: 'recognizeAttack',
+    //     value: function recognizeAttack() {
+    //         var sendPackage = {"inputs": JSON.stringify(inputs)};
+    //         $.post("/process_attack", sendPackage, function (data) {
+    //             console.log(data);
+    //             var newData = eval(data);   //#将字符串转换为整数。
+    //             console.log(newData);
+    //             // for (var _i = 0; _i < 2; _i++) {
+    //             var _i = 1;
+    //             var max = 0;
+    //             var max_index = 0;
+    //             for (var _j = 0; _j < 10; _j++) {
+    //                 var value = Math.round(newData[_j] * 1000);
+    //                 if (value > max) {
+    //                     max = value;
+    //                     max_index = _j;
+    //                 }
+    //                 var digits = String(value).length;
+    //                 for (var k = 0; k < 3 - digits; k++) {
+    //                     value = '0' + value;
+    //                 }
+    //                 var text = '0.' + value;
+    //                 if (value > 999) {
+    //                     text = '1.000';
+    //                 }
+    //                 $('#output tr').eq(_j + 1).find('td').eq(_i).text(text);
+    //             }
+    //             for (var _j2 = 0; _j2 < 10; _j2++) {
+    //                 if (_j2 === max_index) {
+    //                     $('#output tr').eq(_j2 + 1).find('td').eq(_i).addClass('success');
+    //                 } else {
+    //                     $('#output tr').eq(_j2 + 1).find('td').eq(_i).removeClass('success');
+    //                 }
+    //             }
+    //             // }
+    //         });
+    //     }
+    // },
+        {
+        //将上传的图片转换成小图
         key: 'updateInput',
         value: function updateInput() {
             var ctx = this.input.getContext('2d');
@@ -194,6 +251,16 @@ var Main = function () {
             // img.src = this.canvas.toDataURL();
             img.src = imgSrc;
         }
+    }, {
+        //将攻击的手写数字转换到小画布上
+        key: 'fgsm_attack',
+        value: function fgsm_attack() {
+            var sendPackage = {"inputs": JSON.stringify(inputs)};
+            $.post("/fgsm_attack", sendPackage, function (data) {
+                 // $(".attack").empty().append(data);
+                 $(".attack").empty().append(data);
+            });
+        }
     }]);
     return Main;
 }();
@@ -212,6 +279,13 @@ $(function () {
     });
 });
 
+// $(function () {
+//     var main = new Main();
+//     $('#recognizeAttack').click(function () {
+//         main.recognizeAttack();
+//     });
+// });
+
 $(function () {
     var main = new Main();
     $('#drawInput').click(function () {
@@ -223,5 +297,12 @@ $(function () {
     var main = new Main();
     $('#updateInput').click(function () {
         main.updateInput();
+    });
+});
+
+$(function () {
+    var main = new Main();
+    $('#fgsm_attack').click(function () {
+        main.fgsm_attack();
     });
 });

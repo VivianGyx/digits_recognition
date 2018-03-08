@@ -15,18 +15,21 @@
                 <button id="clear" class="btn btn-default">clear</button>
                 <button id="drawInput" class="btn btn-default">drawInput</button>
                 <button id="recognizeDraw" class="btn btn-default">recognize</button>
+                <button id="fgsm_attack" class="btn btn-default">fgsm_atttack</button>
             </p>
         </div>
         <div class="col-md-6">
             <p>input:</p>
             <canvas id="input" style="border:1px solid" width="140" height="140"></canvas>
+            <p>fgsm_attack:</p>
+            <div class="attack"></div>
             <hr>
             <p>output:</p>
             <table id="output" class="table">
                 <tr>
                     <th class="col-md-1"></th>
                     <th class="col-md-2">regression</th>
-                    <th class="col-md-2">convolutional</th>
+                    <th class="col-md-2">fgsm_attack</th>
                 </tr>
                 <tr>
                     <th>0</th>
